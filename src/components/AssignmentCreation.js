@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AssignmentCreation = () => {
   const [title, setTitle] = useState("");
@@ -7,6 +8,7 @@ const AssignmentCreation = () => {
   const [file, setFile] = useState(null);
   const [deadline, setDeadline] = useState("");
   const [marks, setMarks] = useState("");
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     setFile(e.target.files[0]);
@@ -82,6 +84,7 @@ const AssignmentCreation = () => {
         </div>
         <button type="submit">Create Assignment</button>
       </form>
+      <button onClick={() => navigate(`/assignments`)}>View Assignments</button>
     </div>
   );
 };
